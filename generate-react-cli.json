@@ -1,0 +1,42 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "scss",
+  "testLibrary": "Enzyme",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "withInterface": true,
+      "customTemplates": {
+        "component": "src/base/component/template/TemplateName.tsx",
+        "interface": "src/base/component/template/TemplateName.interface.ts"
+      }
+    },
+    "widget": {
+      "path": "src/widgets",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "withInterface": true,
+      "customTemplates": {
+        "component": "src/base/widget/template/TemplateName.tsx",
+        "interface": "src/base/widget/template/TemplateName.interface.ts"
+      }
+    },
+    "template": {
+      "path": "src/templates",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": true,
+      "withLazy": false,
+      "customTemplates": {
+        "component": "src/base/template/TemplateName.tsx"
+      }
+    }
+  }
+}
