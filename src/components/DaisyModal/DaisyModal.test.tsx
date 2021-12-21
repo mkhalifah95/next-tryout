@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Tabs from './Tabs';
+import DaisyModal from './DaisyModal';
 
-describe('<Tabs />', () => {
+describe('<DaisyModal />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<Tabs />);
+    component = shallow(<DaisyModal />);
   });
 
   test('It should mount', () => {

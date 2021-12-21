@@ -1,5 +1,5 @@
 /* eslint-disable */
-import Tabs from './Tabs';
+import Tabs from './TabsWidget';
 
 export default {
   title: "Tabs",

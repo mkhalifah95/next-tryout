@@ -1,5 +1,7 @@
-import Tabs from 'widgets/Tabs/Tabs';
+import Tabs from 'widgets/TabsWidget/TabsWidget';
 
+//@todo: Research if Composition could be used instead of Inheritance per React docs, so that we can use hooks 
+// instead and follow the latest trends and best practices
 class TabsExtended<TabsExtendedProps> extends Tabs {
     constructor(props: TabsExtendedProps) {
         super(props)
