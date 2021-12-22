@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from './Header';
+import CardComp from './CardComp';
 
-describe('<Header />', () => {
+describe('<CardComp />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<Header />);
+    component = shallow(<CardComp />);
   });
 
   test('It should mount', () => {

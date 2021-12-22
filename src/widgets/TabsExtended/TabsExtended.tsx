@@ -4,7 +4,8 @@ import Tabs from 'widgets/TabsWidget/TabsWidget';
 // instead and follow the latest trends and best practices
 class TabsExtended<TabsExtendedProps> extends Tabs {
     constructor(props: TabsExtendedProps) {
-        super(props)
+        super(props);
+        this.variables.classes.tabsClasses = 'APPENDED';
     }
     tabPaneIDVars(item, index): string[] {
         var defaultVars = super.tabPaneIDVars(item, index);

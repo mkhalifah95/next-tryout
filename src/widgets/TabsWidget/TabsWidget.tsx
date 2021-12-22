@@ -3,18 +3,17 @@ import { TabsProps } from './TabsWidget.interface';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
-
 class TabsWidget extends Component<TabsProps> {
     //Additional TS types should be looked into such as adding an interface for the data.json and the widgets them selves for better documentation
     variables: any = {
         classes: {
             tabsClasses: '',
-            navLinkClasses: ''
+            navLinkClasses: 'sdsdd'
         }
     }
-    navItems: any[] = [];
+    private navItems: any[] = [];
+    private ID: string;
     data: any = {};
-    ID: string;
 
     constructor(props: TabsProps) {
         super(props);
@@ -28,7 +27,7 @@ class TabsWidget extends Component<TabsProps> {
 
     tabsNav(): ReactNode {
         return this.navItems.map((item, index) => {
-            return <Tab key={index} eventKey={index} title={this.tabTitle(item)}>{this.tabContent(item)}</Tab>
+            return <Tab tabClassName={this.variables.navLinkClasses} key={index} eventKey={index} title={this.tabTitle(item)}>{this.tabContent(item)}</Tab>
         })
     }
 
@@ -41,7 +40,7 @@ class TabsWidget extends Component<TabsProps> {
         )
     }
 
-    tabContent(item): ReactNode {
+    tabContent(item): any {
         if (item.content) {
             return item.content
         }
@@ -61,6 +60,7 @@ class TabsWidget extends Component<TabsProps> {
 
     render(): ReactNode {
         return (
+            // passing classes is not working by default in BS?
             <Tabs id={this.ID} className={this.variables.classes.tabsClasses} >
                 {this.navItems.length > 0 && this.tabsNav()}
             </Tabs>

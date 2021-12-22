@@ -5,7 +5,7 @@ type P = {
     data?: WidgetData
 };
 
-class RenderWidget extends Component<P> {
+class RenderWidgetComposed extends Component<P> {
     //Additional TS types should be looked into such as adding an interface for the data.json and the widgets them selves for better documentation
     data: WidgetData = {};
     // hasWrapper: boolean = false;
@@ -15,18 +15,15 @@ class RenderWidget extends Component<P> {
         if (this.props.data) {
             this.data = this.props.data;
             // Extra demonstration of pb.render
-            // this.hasWrapper = this.data.config?.wrapper === 'true' || this.data.config?.wrapper === true
-            // if (this.hasWrapper) {
-
-            // }        
+            // this.hasWrapper = this.data.config?.wrapper === 'true' || this.data.config?.wrapper === true       
         }
     }
 
     render(): ReactNode {
         // The way the data is presented to the child component must be looked into
-        return React.cloneElement(this.props.children as ReactElement<any>, { ...this.data })
+        return React.cloneElement(this.props.children as ReactElement<any>, { data: this.data })
     }
 }
 
 
-export default RenderWidget;
+export default RenderWidgetComposed;
