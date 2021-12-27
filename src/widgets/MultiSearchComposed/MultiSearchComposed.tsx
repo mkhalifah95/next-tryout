@@ -4,7 +4,7 @@ import DefaultMultiSearchShowMore from './components/MultiSearchShowMore/MultiSe
 
 const MultiSearchComposed = (props) => {
     // No hooks and TS for now
-    const { data } = props;
+    const { data, componentVariables } = props;
 
     // Inner classes could be moved to their own components
     let variables = {
@@ -13,7 +13,8 @@ const MultiSearchComposed = (props) => {
         widgetClasses: styles[data.thisWidget?.properties?.wrapperClass] || '',
         listclasses: 'list-unstyled',
         moreLinkclasses: 'cta text-uppercase text-reset font-weight-bold animation-icon-shift',
-        moreLinkWrapperClass: 'animation-icon-shift'
+        moreLinkWrapperClass: 'animation-icon-shift',
+        ...componentVariables //Allow variables overriding
     }
 
 
@@ -29,7 +30,7 @@ const MultiSearchComposed = (props) => {
             {<MultiSearchList data={data} components={{ 'MultiSearchItem': props.components?.MultiSearchItem }}
                 className={variables.listclasses} />}
             {<MultiSearchShowMore data={data} classes={{
-                moreLinkclasses: variables.listclasses,
+                moreLinkclasses: variables.moreLinkclasses,
                 moreLinkWrapperClass: variables.moreLinkWrapperClass
             }} />}
         </div>

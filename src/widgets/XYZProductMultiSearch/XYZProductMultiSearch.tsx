@@ -1,38 +1,25 @@
 import React, { Component, ReactNode } from 'react';
-import MultiSearchComposed from '../MultiSearchComposed/MultiSearchComposed'
+import MultiSearchComposed from '../MultiSearchComposed/MultiSearchComposed';
+import CardCompVariant from 'components/CardCompVariant/CardCompVariant';
 
 const XYZProductMultiSearch = (props) => {
-    // No hooks and TS for now
-    // Inner classes could be moved to their own components
-
     const { data } = props;
 
-    const MultiSearchItem = (item) => {
-        console.log(item)
+    let variables = {
+        moreLinkclasses: 'text-success'
+    }
+
+    const MultiSearchItem = ({ data }) => {
         return (
             <li>
-                <p>ITEM</p>
+                <CardCompVariant  {...data} />
             </li>
         )
     }
 
     return (
-        <MultiSearchComposed data={data} components={{ MultiSearchItem }} />
+        <MultiSearchComposed data={data} components={{ MultiSearchItem }} componentVariables={variables} />
     )
 }
-
-// class MultiSearchComposed extends Component<MultiSearchComposedProps> {
-//     constructor(props: MultiSearchComposedProps) {
-//         super(props)
-//     }
-//     render(): ReactNode {
-//         return (
-//             <div className={styles.MultiSearchComposed}>
-//                 <h1>MultiSearchComposed component works</h1>
-//             </div>
-//         )
-//     }
-// }
-
 
 export default XYZProductMultiSearch;

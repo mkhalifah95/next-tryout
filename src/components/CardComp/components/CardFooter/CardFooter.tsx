@@ -12,6 +12,8 @@ const CardFooter = (props) => {
                 <div className="card-contribs authors" dangerouslySetInnerHTML={{ '__html': contribs }}>
                 </div >
             )
+        } else {
+            return null
         }
     }
 

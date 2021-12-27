@@ -1,0 +1,23 @@
+.card-variant {
+
+    // Trying to override nested classes but it doesnt work normally without assigning their values from the components,
+    // instead :global must be used to allow so
+    // This could be bad?
+    :global {
+        .card-header {
+            background-color: lightpink;
+
+            .overline {
+                font-weight: 700;
+            }
+        }
+
+        .card-footer {
+            background-color: rgb(165, 226, 165);
+
+            a {
+                color: rgb(14, 65, 14);
+            }
+        }
+    }
+}

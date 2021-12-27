@@ -13,11 +13,12 @@ const CardComp = (props) => {
     const CardBody = components?.CardBody;
     const CardFooter = components?.CardFooter || DefaultCardFooter;
     const hideContent = props.hideContent;
+    const hideImage = props.hideImage;
 
     // It would be great if there's a way to pass the styles and props and common stuff easier (maybe a custom hook or a provider?)
     return (
         <Card className={baseClass}>
-            {CardImage && <CardImage styles={styles} {...props} />}
+            {!hideImage && <CardImage styles={styles} {...props} />}
             {!hideContent &&
                 <div className='card-content'>
                     {CardHeader && <CardHeader styles={styles} {...props} />}

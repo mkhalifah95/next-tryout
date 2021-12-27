@@ -18,13 +18,19 @@ function App() {
       {/* <RenderWidget data={tabsData}>
         <TabsWidget />
       </RenderWidget> */}
+
       <h1 className='mb-4'>Default multi search</h1>
       <RenderWidgetComposed data={multiData}>
         <MultiSearchComposed />
       </RenderWidgetComposed>
-      {/* <RenderWidgetComposed data={multiData}>
+      <br></br>
+      <h1 className='mb-4'>Modified multi search
+        <h5>(<i> watermelon flavor 🍉 </i>)</h5></h1>
+
+      <RenderWidgetComposed data={multiData}>
         <XYZProductMultiSearch />
-      </RenderWidgetComposed> */}
+      </RenderWidgetComposed>
+
       {/* <RenderWidget data={tabsData}>
         <TabsExtended />
       </RenderWidget> */}

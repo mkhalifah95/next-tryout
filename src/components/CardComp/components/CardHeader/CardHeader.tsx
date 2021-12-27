@@ -12,6 +12,8 @@ const CardHeader = (props) => {
                     {epubDate}
                 </div>
             )
+        } else {
+            return null
         }
     }
 
@@ -34,6 +36,8 @@ const CardHeader = (props) => {
                     {(best && <a className='text-reset text-decoration-none fs-5' href={best}>{title}</a>) || { title }}
                 </h2>
             )
+        } else {
+            return null
         }
     }
 

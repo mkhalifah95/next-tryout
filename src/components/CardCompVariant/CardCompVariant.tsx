@@ -1,11 +1,10 @@
 import React, { Component, ReactNode } from 'react';
-import CardComp from '../CardComp/CardComp'
+import CardComp from '../CardComp/CardComp';
+import styles from './CardCompVariant.module.scss';
 
-const CardCompVariant = () => {
+const CardCompVariant = (props) => {
     return (
-        <CardComp>
-
-        </CardComp>
+        <CardComp baseClass={styles['card-variant']} {...props} hideImage={true} />
     )
 }
 
