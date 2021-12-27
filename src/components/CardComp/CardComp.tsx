@@ -1,25 +1,32 @@
-import React, { Component, ReactNode } from 'react';
 import { Card } from 'react-bootstrap';
-// @ts-ignore
-import { CardCompProps } from './CardComp.interface';
-// @ts-ignore
-import styles from './CardComp.module.scss';
+import DefaultCardHeader from './components/CardHeader/CardHeader'
+import DefaultCardFooter from './components/CardFooter/CardFooter'
+import DefaultCardImage from './components/CardImage/CardImage'
+import styles from './CardComp.module.scss'
 
-//ts ignores should be removed on the generated component
+const CardComp = (props) => {
+    const baseClass = `${props.baseClass ? props.baseClass : ''} ${styles.card}`;
 
-class CardComp extends Component<any> {
-    render(): ReactNode {
-        return (
-            <Card>
-                <Card.Body>
-                    <Card.Title>{this.props.type}</Card.Title>
-                    <Card.Text>
-                        {this.props.title}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        )
-    }
+    const components = props.components;
+    const CardImage = components?.CardImage || DefaultCardImage;
+    const CardHeader = components?.CardHeader || DefaultCardHeader;
+    const CardBody = components?.CardBody;
+    const CardFooter = components?.CardFooter || DefaultCardFooter;
+    const hideContent = props.hideContent;
+
+    // It would be great if there's a way to pass the styles and props and common stuff easier (maybe a custom hook or a provider?)
+    return (
+        <Card className={baseClass}>
+            {CardImage && <CardImage styles={styles} {...props} />}
+            {!hideContent &&
+                <div className='card-content'>
+                    {CardHeader && <CardHeader styles={styles} {...props} />}
+                    {CardBody && <CardBody styles={styles} {...props} />}
+                    {CardFooter && <CardFooter styles={styles} {...props} />}
+                </div>
+            }
+        </Card>
+    )
 }
 
 

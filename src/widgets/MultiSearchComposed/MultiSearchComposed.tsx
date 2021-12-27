@@ -1,55 +1,40 @@
-import React, { Component, ReactNode } from 'react';
-import { MultiSearchComposedProps } from './MultiSearchComposed.interface';
 import styles from './MultiSearchComposed.module.scss';
-import MultiSearchList from './components/MultiSearchList/MultiSearchList'
-import MultiSearchShowMore from './components/MultiSearchShowMore/MultiSearchShowMore'
+import DefaultMultiSearchList from './components/MultiSearchList/MultiSearchList'
+import DefaultMultiSearchShowMore from './components/MultiSearchShowMore/MultiSearchShowMore'
 
 const MultiSearchComposed = (props) => {
     // No hooks and TS for now
+    const { data } = props;
+
     // Inner classes could be moved to their own components
     let variables = {
-        widgetClasses: '',
+        // Notice here how we take and set the dynamic class (max-width-400) from the json and pass it to the styles module
+        // otherwise the class wont be recognized by the stylesheet
+        widgetClasses: styles[data.thisWidget?.properties?.wrapperClass] || '',
         listclasses: 'list-unstyled',
         moreLinkclasses: 'cta text-uppercase text-reset font-weight-bold animation-icon-shift',
         moreLinkWrapperClass: 'animation-icon-shift'
     }
 
-    const { data } = props;
+
+    // set sub components
+    let MultiSearchList = props.components?.MultiSearchList || DefaultMultiSearchList;
+    let MultiSearchShowMore = props.components?.MultiSearchList || DefaultMultiSearchShowMore;
 
     console.log(data)
 
     // this approach is just experimental and not a final result
-    const renderMultiSearchList = () => {
-        return props.components?.MultiSearchList || <MultiSearchList data={data} className={variables.listclasses} />
-    }
-
-    const renderMultiSearchShowMore = () => {
-        return props.components?.MultiSearchShowMore || <MultiSearchShowMore data={data} classes={{
-            moreLinkclasses: variables.listclasses,
-            moreLinkWrapperClass: variables.moreLinkWrapperClass
-        }} />
-    }
-
     return (
         <div className={`multi-search ${variables.widgetClasses}`}>
-            {renderMultiSearchList()}
-            {renderMultiSearchShowMore()}
+            {<MultiSearchList data={data} components={{ 'MultiSearchItem': props.components?.MultiSearchItem }}
+                className={variables.listclasses} />}
+            {<MultiSearchShowMore data={data} classes={{
+                moreLinkclasses: variables.listclasses,
+                moreLinkWrapperClass: variables.moreLinkWrapperClass
+            }} />}
         </div>
     )
 }
-
-// class MultiSearchComposed extends Component<MultiSearchComposedProps> {
-//     constructor(props: MultiSearchComposedProps) {
-//         super(props)
-//     }
-//     render(): ReactNode {
-//         return (
-//             <div className={styles.MultiSearchComposed}>
-//                 <h1>MultiSearchComposed component works</h1>
-//             </div>
-//         )
-//     }
-// }
 
 
 export default MultiSearchComposed;

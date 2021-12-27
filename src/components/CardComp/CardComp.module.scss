@@ -1,1 +1,7 @@
-.CardComp {}
+.card {
+    margin-bottom: 2rem;
+
+    &-body {
+        padding: 0;
+    }
+}

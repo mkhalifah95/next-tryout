@@ -217,7 +217,7 @@
             "wrapperTag": "div",
             "title": "",
             "fieldValue0": "contextual",
-            "wrapperClass": "",
+            "wrapperClass": "max-width-400",
             "sortBy": "Earliest",
             "wrapperAttributes": [],
             "ellipseCount": "3",

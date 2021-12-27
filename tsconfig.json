@@ -24,6 +24,7 @@
   },
   "include": [
     "src",
-    "src/widgets/MultiSearchComposed/components/MultiSearchShowMore/.tsx"
+    "src/widgets/MultiSearchComposed/components/MultiSearchShowMore/.tsx",
+    "src/widgets/XYZProductMultiSearch/.tsx"
   ]
 }
