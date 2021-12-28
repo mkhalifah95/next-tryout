@@ -7,21 +7,17 @@ const CardFooter = (props) => {
 
     // These defaults could be moved to their own components for abstraction
     const DefaultAuthors = () => {
-        if (contribs) {
-            return (
-                <div className="card-contribs authors" dangerouslySetInnerHTML={{ '__html': contribs }}>
-                </div >
-            )
-        } else {
-            return null
-        }
+        return (
+            <div className="card-contribs authors" dangerouslySetInnerHTML={{ '__html': contribs }}>
+            </div >
+        )
     }
 
     const Authors = components?.Authors || DefaultAuthors;
 
     return (
         <Card.Footer className={footerClass}>
-            <Authors />
+            {contribs && <Authors />}
         </Card.Footer>
     )
 }

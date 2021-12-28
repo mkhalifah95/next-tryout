@@ -2,7 +2,7 @@
 
     // Trying to override nested classes but it doesnt work normally without assigning their values from the components,
     // instead :global must be used to allow so
-    // This could be bad?
+    // Could this be bad?
     :global {
         .card-header {
             background-color: lightpink;
@@ -19,5 +19,10 @@
                 color: rgb(14, 65, 14);
             }
         }
+    }
+
+    // However, nested elements can be styled without the global pseudo
+    h2 {
+        color: black;
     }
 }

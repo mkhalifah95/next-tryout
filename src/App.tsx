@@ -15,6 +15,25 @@ import XYZProductMultiSearch from 'widgets/XYZProductMultiSearch/XYZProductMulti
 function App() {
   return (
     <div className={classes.App}>
+      <h3>Some Hooks and composition resources from the official react docs: </h3>
+      <ul>
+        <li>
+          <a href="https://reactjs.org/docs/composition-vs-inheritance.html">https://reactjs.org/docs/composition-vs-inheritance.html</a>
+        </li>
+        <li>
+          <a href="https://reactjs.org/docs/hooks-intro.html">https://reactjs.org/docs/hooks-intro.html</a>
+        </li>
+      </ul>
+      <p>Personally I prefer <b>Composition & Hooks</b> over Inheritance & Class based mainly because: </p>
+      <ol>
+        <li>React itself is Components-centric so this Pattern works pretty well with it</li>
+        <li>This Pattern improves reusability</li>
+        <li>The code written is much less and much cleaner</li>
+        <li>We can leverage the latest improvements that are made by the React team, and stay up to date with the latest trends</li>
+      </ol>
+      <i>Ofc this is not a final decision, and there's room for further considerations</i>
+
+      <hr />
       {/* <RenderWidget data={tabsData}>
         <TabsWidget />
       </RenderWidget> */}
@@ -24,8 +43,9 @@ function App() {
         <MultiSearchComposed />
       </RenderWidgetComposed>
       <br></br>
-      <h1 className='mb-4'>Modified multi search
-        <h5>(<i> watermelon flavor 🍉 </i>)</h5></h1>
+      <h1 className='mb-0'>Modified multi search
+      </h1>
+      <h5 className='mb-4'>(<i> watermelon flavor 🍉 </i>)</h5>
 
       <RenderWidgetComposed data={multiData}>
         <XYZProductMultiSearch />

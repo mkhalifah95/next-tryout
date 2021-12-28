@@ -5,22 +5,23 @@ const MultiSearchList = (props) => {
     const items = props.data.data.items;
     console.log(props.data.data.items);
 
-    const MultiSearchItem = props.components?.MultiSearchItem;
-
     //this can be made into a component also
-    const defaultMultiSearchItem = (item) => {
+    const defaultMultiSearchItem = ({ item }) => {
         // render a card or something
         return (
             <li>
-                <CardComp {...item} data={props.data.data} />
+                <CardComp {...item} />
             </li>
         )
     }
 
+    const MultiSearchItem = props.components?.MultiSearchItem || defaultMultiSearchItem;
+
+
     return (
         <ul className={listClasses}>
             {items.length > 0 && items.map((item) => {
-                return (MultiSearchItem && <MultiSearchItem data={item} />) || defaultMultiSearchItem(item)
+                return <MultiSearchItem item={item} />
             })}
         </ul>
     )

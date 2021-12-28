@@ -4,7 +4,7 @@ import DefaultMultiSearchShowMore from './components/MultiSearchShowMore/MultiSe
 
 const MultiSearchComposed = (props) => {
     // No hooks and TS for now
-    const { data, componentVariables } = props;
+    const { data, componentVariables, components, moreText } = props;
 
     // Inner classes could be moved to their own components
     let variables = {
@@ -19,17 +19,15 @@ const MultiSearchComposed = (props) => {
 
 
     // set sub components
-    let MultiSearchList = props.components?.MultiSearchList || DefaultMultiSearchList;
-    let MultiSearchShowMore = props.components?.MultiSearchList || DefaultMultiSearchShowMore;
-
-    console.log(data)
+    let MultiSearchList = components?.MultiSearchList || DefaultMultiSearchList;
+    let MultiSearchShowMore = components?.MultiSearchList || DefaultMultiSearchShowMore;
 
     // this approach is just experimental and not a final result
     return (
         <div className={`multi-search ${variables.widgetClasses}`}>
-            {<MultiSearchList data={data} components={{ 'MultiSearchItem': props.components?.MultiSearchItem }}
+            {<MultiSearchList data={data} components={{ 'MultiSearchItem': components?.MultiSearchItem }}
                 className={variables.listclasses} />}
-            {<MultiSearchShowMore data={data} classes={{
+            {<MultiSearchShowMore data={data} moreText={moreText} classes={{
                 moreLinkclasses: variables.moreLinkclasses,
                 moreLinkWrapperClass: variables.moreLinkWrapperClass
             }} />}

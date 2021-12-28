@@ -5,7 +5,7 @@ import DefaultCardImage from './components/CardImage/CardImage'
 import styles from './CardComp.module.scss'
 
 const CardComp = (props) => {
-    const baseClass = `${props.baseClass ? props.baseClass : ''} ${styles.card}`;
+    const baseClass = `${props.className ? props.className : ''} ${styles.card}`;
 
     const components = props.components;
     const CardImage = components?.CardImage || DefaultCardImage;
@@ -21,9 +21,9 @@ const CardComp = (props) => {
             {!hideImage && <CardImage styles={styles} {...props} />}
             {!hideContent &&
                 <div className='card-content'>
-                    {CardHeader && <CardHeader styles={styles} {...props} />}
+                    <CardHeader styles={styles} {...props} />
                     {CardBody && <CardBody styles={styles} {...props} />}
-                    {CardFooter && <CardFooter styles={styles} {...props} />}
+                    <CardFooter styles={styles} {...props} />
                 </div>
             }
         </Card>
